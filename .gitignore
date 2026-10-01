@@ -69,3 +69,6 @@ protocol_v2/results/splits/*.npz
 # scratch left by a sandbox that could create files but not delete them. Safe to remove.
 .wtest
 .trash_perm_test
+
+# working notes, kept locally and not published
+NOTES.md
