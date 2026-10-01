@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+title: >-
+  TRACE-GNN: Temporal Relational Attention with Causal Edges —
+  paper code
+message: >-
+  If you use this software, please cite the manuscript below.
+  Citation details will be completed once the manuscript is
+  published.
+type: software
+authors:
+  - given-names: Talal
+    family-names: Ali Ahmed Abdullah
+    email: talal2ali@gmail.com
+abstract: >-
+  Reference implementation and paper code for TRACE-GNN, a
+  leakage-safe temporal graph encoder for transaction-level
+  credit-card fraud detection under a fixed alert budget,
+  framed as node classification. Pure PyTorch, with no
+  PyTorch Geometric dependency in the model itself. This is
+  the code-only archive: it contains no result files, no
+  trained weights, no rendered figures, no dataset and no
+  manuscript.
+keywords:
+  - fraud detection
+  - graph neural network
+  - temporal graph
+  - data leakage
+  - rolling-origin evaluation
+  - alert budget
+license: MIT
+version: v7a-code-1.0.0
+date-released: '2026-09-30'
+references:
+  - type: data
+    title: Credit Card Transactions Fraud Detection Dataset
+    authors:
+      - given-names: Kartik
+        family-names: Shenoy
+    year: 2020
+    url: 'https://www.kaggle.com/datasets/kartik2112/fraud-detection'
+    notes: >-
+      Not redistributed with this archive. See REPRODUCE.md for
+      download and preparation instructions.
+preferred-citation:
+  type: unpublished
+  title: >-
+    TRACE-GNN: Temporal Relational Attention with Causal Edges
+    for credit-card fraud detection
+  authors:
+    - given-names: Talal
+      family-names: Ali Ahmed Abdullah
+  year: 2026
+  notes: >-
+    Manuscript under review. This archive corresponds to draft
+    v7a (TRACE-GNN_manuscript_v7a.docx), last saved
+    2026-09-03 18:17 UTC, written to disk 2026-09-08 13:59 +03:00.

@@ -1,0 +1,71 @@
+# data, rebuilt from the public Kaggle corpus. See README.
+data/
+prepared/
+*.parquet
+
+# large artefacts
+*.pt
+*.pth
+checkpoints/
+foldckpt*.csv
+# ...but keep them inside a published run folder: they are 17 rows each and
+# are what lets --resume and --check-only read the run's progress.
+!results/rerun_*/**/foldckpt.csv
+
+# jupyter
+.ipynb_checkpoints/
+.virtual_documents/
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# os
+.DS_Store
+Thumbs.db
+~$*
+
+
+# third-party copyrighted PDFs. The list and the fetch script are tracked, the PDFs are not.
+references/*.pdf
+
+# --------------------------------------------------------------------------------------
+# protocol_v2 (added 2026-09-01)
+#
+# Rule of thumb: the code, the notebooks and the small provenance records are tracked.
+# Anything big, or anything a run regenerates, is not.
+# --------------------------------------------------------------------------------------
+
+# Per-transaction score files, project-wide. Eleven of them already exist under
+# results/ at ~7.4 MB each, about 80 MB in total, and four more will be written by
+# protocol_v2. They are the largest thing in the tree by a wide margin and every one is
+# regenerable from its run. The per-fold summaries, manifests and validation curves that
+# sit beside them ARE tracked, so provenance is unaffected.
+results/**/scores*.csv
+protocol_v2/results/arms/*/scores.csv
+# ...EXCEPT the tuned tree baseline. rerun_canonical.py READS it and refuses to start
+# without it; it is an input to this repository, not a result it produced.
+!results/budget/scores_xgb_11_tuned.csv
+
+# saved fold weights, ~80 MB over four arms (also caught by *.pt above)
+protocol_v2/results/arms/*/weights/
+
+# the RNG state files written at each fold boundary (also caught by *.pt above)
+protocol_v2/results/arms/*/rng_state.pt
+
+# saved index arrays for the fold sets — regenerable from the data, and several MB.
+# Their SHA-256 hashes ARE tracked, in SPLITS_MANIFEST.json, which is the part that
+# matters for checking that A2 and A3 used the same split.
+protocol_v2/results/splits/*.npz
+
+# ...but keep the small records: per_fold.csv, summary.json, arm_manifest.json,
+# run_manifest.json, canonical_p3_lock.json, SPLITS_MANIFEST.json, val_curves.csv,
+# requirements.lock.txt, everything under derived/, and the fold checkpoints.
+!protocol_v2/results/arms/*/foldckpt.csv
+
+# scratch left by a sandbox that could create files but not delete them. Safe to remove.
+.wtest
+.trash_perm_test

@@ -1,0 +1,14 @@
+# Exact versions used for every reported result. See ENVIRONMENT.md for Python, CUDA and
+# hardware.
+#
+# torch must come from pytorch.org for your CUDA version, NOT from this file. The reported
+# runs used 2.12.1+cu130. Install it first, then:  pip install -r requirements.txt
+#
+# torch==2.12.1+cu130          # --index-url https://download.pytorch.org/whl/cu130
+numpy==2.3.5
+pandas==2.3.3
+scikit-learn==1.7.2
+scipy==1.16.3
+xgboost==3.2.0
+matplotlib==3.10.7
+optuna==4.6.0
